@@ -2,7 +2,7 @@ run:
 	go run main.go
 
 test:
-	go test stringstuff/ops_test.go
+	go test
 
 docker_build:
 	docker build --tag coolstuff:1.0 .
