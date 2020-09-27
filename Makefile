@@ -2,14 +2,16 @@ run:
 	go run main.go
 
 test:
-	go test
+	gofmt -l .
+	[ "`gofmt -l .`" = "" ]
+	go test ./...
 
 docker_build:
-	docker build --tag coolstuff:1.0 .
+	docker build --tag coolstuff-go:1.0 .
 
 docker_run:
-	docker run -p 5000:5000 --name cool coolstuff:1.0
+	docker run -p 5000:5000 --name coolgo coolstuff-go:1.0
 
 docker_clean:
-	docker stop cool
-	docker rm cool
+	docker stop coolgo
+	docker rm coolgo

@@ -1,13 +1,13 @@
 package stringstuff
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestDeleter(t *testing.T) {
 	testCases := []struct {
-		str string
+		str      string
 		toRemove string
 		expected string
 	}{
@@ -18,7 +18,7 @@ func TestDeleter(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		actual := removeChars(testCase.str, testCase.toRemove)
+		actual := RemoveChars(testCase.str, testCase.toRemove)
 
 		assert.Equal(t, testCase.expected, actual, "The string output should match.")
 	}

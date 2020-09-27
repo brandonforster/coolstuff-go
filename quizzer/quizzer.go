@@ -3,10 +3,10 @@ package quizzer
 import (
 	"bufio"
 	"fmt"
-	"strings"
-	"strconv"
 	"log"
 	"os"
+	"strconv"
+	"strings"
 )
 
 // Main entry point
@@ -24,7 +24,7 @@ func Main() {
 	}
 }
 
-func pullFile() []string{
+func pullFile() []string {
 	file, err := os.Open("problems.csv")
 	if err != nil {
 		log.Fatal(err)
@@ -35,14 +35,14 @@ func pullFile() []string{
 	lines := []string{}
 
 	scanner := bufio.NewScanner(file)
-    for scanner.Scan() {
-        lines = append(lines, scanner.Text())
-    }
-
-    if err := scanner.Err(); err != nil {
-        log.Fatal(err)
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
 	}
-	
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+
 	return lines
 }
 
@@ -88,22 +88,22 @@ func parseOp(question string, operator string) (bool, []int) {
 
 func doOperation(members []int, operation string, answer int) bool {
 	if operation == "+" {
-		solution :=  members[0] + members[1]
+		solution := members[0] + members[1]
 		return solution == answer
 	}
 
 	if operation == "-" {
-		solution :=  members[0] - members[1]
+		solution := members[0] - members[1]
 		return solution == answer
 	}
 
 	if operation == "*" {
-		solution :=  members[0] * members[1]
+		solution := members[0] * members[1]
 		return solution == answer
 	}
 
 	if operation == "/" {
-		solution :=  members[0] / members[1]
+		solution := members[0] / members[1]
 		return solution == answer
 	}
 

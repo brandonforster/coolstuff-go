@@ -1,6 +1,6 @@
 package stringstuff
 
-func removeChars(str string, toRemove string) string {
+func RemoveChars(str string, toRemove string) string {
 	ignore := make(map[rune]bool)
 
 	for _, char := range toRemove {
